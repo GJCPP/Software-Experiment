@@ -1,8 +1,9 @@
 import os
+import run_test
 
 
 def interface():
-    input_dic = 'NULL'
+    input_dic = 'C:\\Users\\GJC\\Desktop\\input'
     output_dic = 'NULL'
     choose = ''
     while True:
@@ -16,7 +17,7 @@ def interface():
         elif choose == '2':
             output_dic = input_output_dic()
         elif choose == '3':
-            run_test()
+            start_test(input_dic, output_dic)
         else:
             print('指令无效！请重新输入。')
 
@@ -47,7 +48,7 @@ def input_output_dic():
     return ret
 
 
-def run_test():
-    pass
+def start_test(source_dic, output_path):
+    run_test.run(source_dic, output_path)
 
 
