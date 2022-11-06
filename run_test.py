@@ -42,6 +42,7 @@ def run(source_dic, output_path, testcases):
             os.remove(exe_name(name))
         os.remove(testfile)
     output_res(output_diff_file, differ_set, output_same_file, same_set)
+    return (len(same_set), len(differ_set))
 
 
 def output_res(differ_file, differ_set, same_file, same_set):
