@@ -30,7 +30,6 @@ def interface():
 
 
 def input_input_dic():
-    os.system('cls')
     ret = ''
     while True:
         print('请输入待测试文件文件夹:')
@@ -43,7 +42,6 @@ def input_input_dic():
 
 
 def input_output_dic():
-    os.system('cls')
     ret = ''
     while True:
         print('请输入用来输出测试结果的文件夹:')
@@ -56,7 +54,6 @@ def input_output_dic():
 
 
 def input_testcase():
-    os.system('cls')
     ret = ''
     while True:
         print('请输入随机生成的测试样例数:')
@@ -74,6 +71,12 @@ def input_testcase():
 
 
 def start_test(source_dic, output_path, testcases):
+    if not os.path.exists(source_dic):
+        print('待测试文件夹无效！请选择1并输入一个有效的文件夹。')
+        return
+    if not os.path.exists(output_path):
+        print('输出文件夹无效！请选择2并输入一个有效的文件夹。')
+        return
     run_test.run(source_dic, output_path, testcases)
 
 
