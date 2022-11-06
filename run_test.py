@@ -8,11 +8,11 @@ def run(source_dic, output_path, testcases):
     differ_set = set()
     same_set = set()
     testfile = 'test.input'
-    output_diff_file = output_path + '\\inequal.csv'
-    output_same_file = output_path + '\\equal.csv'
+    output_diff_file = output_path + '/inequal.csv'
+    output_same_file = output_path + '/equal.csv'
     for dirname in dic_list:
-        namepath = source_dic[source_dic.rfind('\\')+1:] + '\\' + dirname + '\\'
-        os.chdir(source_dic + '\\' + dirname)
+        namepath = source_dic[source_dic.rfind('/')+1:] + '/' + dirname + '/'
+        os.chdir(source_dic + '/' + dirname)
         input_format = get_input_format()
         allfile = os.listdir()
         allcpp = [s for s in allfile if s[-4:] == '.cpp']
@@ -24,7 +24,7 @@ def run(source_dic, output_path, testcases):
             generate_test(input_format, testfile)
             runtime_err = dict()
             for name in allcpp:
-                runtime_err[name] = os.system(exe_name(name) + ' < ' + testfile + ' > ' + output_name(name))
+                runtime_err[name] = os.system('./' + exe_name(name) + ' < ' + testfile + ' > ' + output_name(name))
             for first in allcpp:
                 if runtime_err[first] != 0:
                     continue
@@ -91,7 +91,7 @@ def output_name(cpp_file_name):
 
 
 def exe_name(cpp_file_name):
-    return cpp_file_name + '.exe'
+    return cpp_file_name + '.out'
 
 
 def get_input_format():

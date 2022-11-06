@@ -3,10 +3,14 @@ import run_test
 
 
 def interface():
-    input_dic = 'C:\\Users\\GJC\\Desktop\\input'
-    output_dic = 'C:\\Users\\GJC\\Desktop\\output'
+    input_dic = './input'
+    output_dic = './output'
     testcases = 10
     while True:
+        if not os.path.isabs(input_dic):
+            input_dic = os.path.abspath(input_dic)
+        if not os.path.isabs(output_dic):
+            output_dic = os.path.abspath(output_dic)
         print('欢迎：')
         print('    1. 更改待测试文件文件夹，当前:' + input_dic)
         print('    2. 更改输出文件夹，当前:' + output_dic)
