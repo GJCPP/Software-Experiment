@@ -16,6 +16,7 @@ def interface():
         print('    2. 更改输出文件夹，当前:' + output_dic)
         print('    3. 更改随机生成测试样例数，当前:' + str(testcases))
         print('    4. 运行测试')
+        print('    5. 结束程序')
         choose = input()
         if choose == '1':
             input_dic = input_input_dic()
@@ -25,6 +26,8 @@ def interface():
             testcases = input_testcase()
         elif choose == '4':
             start_test(input_dic, output_dic, testcases)
+        elif choose == '5':
+            return
         else:
             print('指令无效！请重新输入。')
 

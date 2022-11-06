@@ -15,7 +15,7 @@ def run(source_dic, output_path, testcases):
         os.chdir(source_dic + '/' + dirname)
         input_format = get_input_format()
         allfile = os.listdir()
-        allcpp = [s for s in allfile if s[-4:] == '.cpp']
+        allcpp = [s for s in allfile if s[-4:] == '.cpp' or s[-2:] == '.c']
         allexe = []
         for name in allcpp:
             compile_cpp(name, exe_name(name))
