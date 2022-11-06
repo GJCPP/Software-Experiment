@@ -30,6 +30,7 @@ def interface():
 
 
 def input_input_dic():
+    os.system('clear')
     ret = ''
     while True:
         print('请输入待测试文件文件夹:')
@@ -38,10 +39,12 @@ def input_input_dic():
             break
         print('未能找到文件夹:' + ret)
         print('请重新输入！')
+    os.system('clear')
     return ret
 
 
 def input_output_dic():
+    os.system('clear')
     ret = ''
     while True:
         print('请输入用来输出测试结果的文件夹:')
@@ -50,10 +53,12 @@ def input_output_dic():
             break
         print('未能找到文件夹:' + ret)
         print('请重新输入！')
+    os.system('clear')
     return ret
 
 
 def input_testcase():
+    os.system('clear')
     ret = ''
     while True:
         print('请输入随机生成的测试样例数:')
@@ -67,16 +72,20 @@ def input_testcase():
             print('请输入一个正整数！')
             continue
         break
+    os.system('clear')
     return ret
 
 
 def start_test(source_dic, output_path, testcases):
+    os.system('clear')
     if not os.path.exists(source_dic):
         print('待测试文件夹无效！请选择1并输入一个有效的文件夹。')
         return
     if not os.path.exists(output_path):
         print('输出文件夹无效！请选择2并输入一个有效的文件夹。')
         return
+    os.system('clear')
     run_test.run(source_dic, output_path, testcases)
+    os.system('clear')
 
 
