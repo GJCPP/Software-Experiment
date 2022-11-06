@@ -25,16 +25,20 @@ def run(source_dic, output_path, testcases):
             runtime_err = dict()
             for name in allcpp:
                 runtime_err[name] = os.system('./' + exe_name(name) + ' < ' + testfile + ' > ' + output_name(name))
-            for first in allcpp:
+            for i in range(len(allcpp)):
+                first = allcpp[i]
                 if runtime_err[first] != 0:
                     continue
-                for second in allcpp:
+                for j in range(i + 1, len(allcpp)):
+                    second = allcpp[j]
                     if runtime_err[second] != 0 or (namepath + first, namepath + second) in differ_set:
                         continue
                     if first != second and not compare(output_name(first), output_name(second)):
                         differ_set.add((namepath + first, namepath + second))
-        for first in allcpp:
-            for second in allcpp:
+        for i in range(len(allcpp)):
+            for j in range(i + 1, len(allcpp)):
+                first = allcpp[i]
+                second = allcpp[j]
                 if (namepath + first, namepath + second) not in differ_set:
                     same_set.add((namepath + first, namepath + second))
         for name in allcpp:
